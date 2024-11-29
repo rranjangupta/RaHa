@@ -75,32 +75,35 @@
          <audio src="./assets/mp3/song.mp3" id="my_audio" loop="loop"></audio>
       </div>
 
-
       <script>
          document.addEventListener('DOMContentLoaded', () => {
             const audio = document.getElementById('my_audio');
 
-            // Ensure audio plays on load if autoplay is allowed
+            // Function to play audio on page load (desktop autoplay)
             const playAudio = () => {
                audio.play().catch(error => {
-                  console.log("Autoplay blocked. Please interact with the page to play audio.");
+                  console.log("Autoplay blocked. Waiting for user interaction...");
                });
             };
 
-            // Play audio on user interaction
+            // Function to play audio after user interaction (mobile)
             const enableAudio = () => {
                audio.muted = false; // Unmute audio
                audio.play().catch(error => console.error("Failed to play audio:", error));
                document.body.removeEventListener('click', enableAudio); // Remove listener after enabling
             };
 
-            // Attempt autoplay
+            // Try autoplay on desktop browsers
             playAudio();
 
-            // Add event listener for user interaction as a fallback
+            // Add event listener for mobile or desktop user interaction as a fallback
             document.body.addEventListener('click', enableAudio);
+
+            // Also listen for touch events on mobile to ensure audio can play after touch
+            document.body.addEventListener('touchstart', enableAudio);
          });
       </script>
+
       <p class="happiness">Join us in our happiness!<br><a href="https://twitter.com/mr_rranjangupta" target="_blank" class="twitter"><i class="fa fa-twitter"></i></a></p>
       <!-- partial -->
       <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js'></script>
