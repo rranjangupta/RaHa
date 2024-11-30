@@ -20,13 +20,13 @@
  * Listen here: https://youtu.be/X0MDALpV29s
  *
  */
-$(document).on('click', function(){
-    document.getElementById("my_audio").play();
-    console.log('Shaadi me zaroor aana');
-});
+// $(document).on('click', function(){
+//     document.getElementById("my_audio").play();
+//     console.log('Shaadi me zaroor aana');
+// });
 
 // Set the date we're counting down to
-var countDownDate = new Date("Nov 29, 2024 00:00:00").getTime();
+var countDownDate = new Date("Jan 26, 2025 17:00:00").getTime();
 
 // Update the count down every 1 second
 var x = setInterval(function() {
@@ -49,13 +49,13 @@ var x = setInterval(function() {
     // If the count down is over, write some text 
     if (distance < 0) {
         clearInterval(x);
-        document.getElementById("time").innerHTML = "Bless the married couple for happy life!";
+        document.getElementById("time").innerHTML = "Bless the couple for happy life!";
     }
 }, 1000);
 
 // being a bit cool :p  
 var styles = [
-    'background: linear-gradient(#D33106, #571402)'
+    'background: transparent'  // Make background transparent
     , 'border: 4px solid #3E0E02'
     , 'color: white'
     , 'display: block'
@@ -85,9 +85,10 @@ var styles2 = [
     , 'font-size: 32px'
 ].join(';');
 
-console.log('\n\n%c SAVE THE DATE: 29th Nov, 2020!', styles);
 
-console.log('%cYour presence is requested!%c\n\nRegards: Vinit Shahdeo', styles1, styles2);
+console.log('\n\n%c SAVE THE DATE: 26th Jan, 2025!', styles);
+
+console.log('%cYour presence is requested!%c\n\nRegards: Raju Gupta', styles1, styles2);
 
 console.log(
     `%cShaadi me zaroor aana!\n\n`,
