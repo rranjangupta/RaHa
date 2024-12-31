@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dynamic Photo Carousel</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f0f0f0;
+        }
+
+        .carousel-container {
+            width: 90%;
+            max-width: 800px;
+            overflow: hidden;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .carousel {
+            display: flex;
+            transition: transform 1s ease-in-out;
+        }
+
+        .carousel img {
+            width: 100%;
+            flex-shrink: 0;
+            object-fit: cover;
+        }
+    </style>
+</head>
+<body>
+<div class="carousel-container">
+    <div class="carousel"></div>
+</div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const imageFolder = './assets/picture/'; // Path to the folder containing images
+        const carousel = document.querySelector('.carousel');
+        const images = [
+            `${imageFolder}image1.jpeg`,
+            `${imageFolder}image2.jpeg`,
+            `${imageFolder}image3.jpeg`
+        ]; // Add image paths manually
+        let currentIndex = 0;
+
+        // Populate the carousel with images
+        images.forEach((image) => {
+            const imgElement = document.createElement('img');
+            imgElement.src = image;
+            imgElement.alt = "Carousel Image";
+            carousel.appendChild(imgElement);
+        });
+
+        // Clone the first image for seamless looping
+        const firstImageClone = carousel.firstElementChild.cloneNode(true);
+        carousel.appendChild(firstImageClone);
+
+        // Start carousel animation
+        const totalImages = images.length + 1; // Include the cloned image
+        setInterval(() => {
+            currentIndex++;
+
+            if (currentIndex === totalImages) {
+                // Reset to the first image (seamlessly)
+                carousel.style.transition = 'none';
+                carousel.style.transform = 'translateX(0)';
+                currentIndex = 0;
+                // Allow the transition for the next cycle
+                setTimeout(() => {
+                    carousel.style.transition = 'transform 1s ease-in-out';
+                }, 5);
+            } else {
+                carousel.style.transform = `translateX(-${currentIndex * 100}%)`;
+            }
+        }, 2000); // Change image every 1 second
+    });
+</script>
+</body>
+</html>
