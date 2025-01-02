@@ -378,14 +378,13 @@ img {
 	left: 0;
 	display: block;
 }
-
 .title h1 {
 	font-family: 'Dancing Script', cursive;
 	font-weight: bold;
 	font-style: normal;
-	font-size: 90px;
+	font-size: 90px; /* Default size for desktop */
 	margin: 32px 0;
-	color: #674ea7;
+	color: rebeccapurple;
 }
 
 .title h2 {
@@ -394,19 +393,10 @@ img {
 	font-style: normal;
 	margin: 0;
 	padding: 0;
-	font-size: 24px;
-	color: #e25c67;
+	font-size: 24px; /* Default size for desktop */
+	/*color: #e25c67;*/
+	color: black;
 	line-height: 1;
-}
-
-.dance-med {
-	font-family: 'Dancing Script', cursive;
-	font-weight: bolder;
-	font-style: normal;
-	font-size: 32px;
-	color: #674ea7;
-	margin: 16px;
-	text-align: center;
 }
 
 .title h3 {
@@ -414,24 +404,59 @@ img {
 	text-transform: uppercase;
 	letter-spacing: 5px;
 	font-size: 20px;
-	color: #674ea7;
+	color: black;
 	margin-top: 5px;
 }
-@media (max-width: 768px) {
+
+@media (max-width: 1000px) {
 	/* Adjust sizes for mobile screens */
-	.title h1 {
-		font-size: 2.5rem;
+	.wrap .title h1 {
+		font-size: 90px;
 	}
 	.title h2 {
-		font-size: 1.5rem;
+		font-size: 32px; /* Adjusted size for mobile */
 	}
 	.title h3 {
-		font-size: 1.2rem;
+		font-size: 22px; /* Adjusted size for mobile */
 	}
-	}
+}
+
 
 .title p {
-	color: #564861;
+	color: black;
+	margin: 30px 0 20px;
+	text-transform: uppercase;
+	letter-spacing: 3px;
+	font-size: 16px;
+}
+
+.wrap {
+	display: -webkit-flex;
+	display: flex;
+	-webkit-flex-wrap: wrap;
+	flex-wrap: wrap;
+	-webkit-justify-content: center;
+	justify-content: center;
+	-webkit-align-items: center;
+	align-items: center;
+	/* padding: 20px; */
+	text-align: center;
+	/* min-height:100%; */
+}
+
+.dance-med {
+	font-family: 'Dancing Script', cursive;
+	font-weight: bolder;
+	font-style: normal;
+	font-size: 32px;
+	color: black;
+	margin: 16px;
+	text-align: center;
+}
+
+
+.title p {
+	color: black;
 	margin: 30px 0 20px;
 	text-transform: uppercase;
 	letter-spacing: 3px;
@@ -553,7 +578,7 @@ body {
 }
 
 .footer {
-	color: #564861;
+	color: white;
 	text-align: center;
 	font-size: 16px;
 	margin: 24px;
